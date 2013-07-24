@@ -1,0 +1,123 @@
+% Template for seminar reports v0.1 (peter.troeger@hpi.uni-potsdam.de)
+% Operating Systems & Middleware Group
+% Hasso Plattner Institute, University of Potsdam
+%
+% This template is intended to ease the later processing of your report, so:
+% - Any additional Latex packages should be avoided.
+% - If you submit the LaTex sources, do not use subdirectories.
+% - If you submit the LaTex sources, do not use multiple .tex files via \include.
+% - Try to follow the style guide recommendations.
+% - Look out for "TODO" markers in this document.
+
+\documentclass[12pt,a4paper,oneside]{article}
+\usepackage[utf8]{inputenc} % Support special characters in source file
+\usepackage{graphicx}		% for bitmap figures
+\usepackage{tabularx}		% for tables
+\usepackage{booktabs}		% for pretty tables
+\usepackage{cite}			% for pretty citations
+\usepackage{amsmath}		% for equations
+\usepackage[acronym, nonumberlist, style=super]{glossaries}
+\usepackage{geometry}		% lets save some trees
+\geometry{a4paper,left=30mm,right=20mm, top=30mm, bottom=30mm}
+\date{}
+
+% Some commands you might find handy:
+%   \enquote{text} 	--> puts the text into quotes
+%   \term{text}		--> optical emphasis for special terms
+\newcommand{\enquote}[1]{``#1''}
+\newcommand{\term}[1]{\textsl{#1}}
+
+% TODO: If your report is in German, include this command to translate the section headings
+% \usepackage[ngerman]{babel}
+
+% TODO: Define all your acronyms like this:
+%   \newacronym{soa}{SOA}{\term{service-oriented architecture}}
+% Inside the text, you can use the \gls command:
+%   \gls{soa}       --> full description only at first occurrence 
+\newacronym{soa}{SOA}{\term{service-oriented architecture}}
+
+% TODO: Add your report title and seminar title here
+\title{Trust Based Access Control \\ \small Cloud Security Mechanisms Seminar -- Summer Term 2013}
+% TODO: Add your name(s) here. Leave out student ID number and email addresses.
+\author{Vincent Schwarzer}
+
+\makeglossaries 
+\begin{document}
+\maketitle
+
+
+\section{Introduction}
+a) The problem being solved\\
+b) How is the problem solved (possibly alternatives)\\
+c) Benefits of the methods presented (contribution of the presented research)\\
+
+\section{Foundations}
+Foundations are not the actual mechanisms that this report focuses on, but basic knowledge that one needs to have to understand this report. If necessary, describe here mathematical, technical and other foundations. This can be brief and abstract.
+
+\section{History}
+This section could also be titled "related work" - but you're not describing own work. Instead, outline the research history in your topic. Start with who first identified the problem and present how different solutions were published over time. Outline the mechanisms but do not go into deep details. Point to the respective publications like so: \cite{schechter2004computer,distefano2009dependability,mauw2006foundations,besson2001model,dolev1983security}.
+
+\section{Mechanism Details}
+Pick a limited number mechanisms from above and describe in detail how they work.
+
+\section{Future Work}
+Point to open research questions in the work presented - and reference the corresponding publications.
+
+\section{Conclusion}
+Summarize the report.
+
+%TODO: Remove the complete style guide section in your final report.
+\section*{Style Guide}
+
+\subsection*{Acronyms}
+
+One nice feature of Latex is the proper handling of acronyms, such as \gls{soa}. Whenever the \enquote{gls} command is used, Latex automatically determines if the acronym was already defined in the text. So if I refer to \gls{soa} again, the acronym is used instead of the full description text.
+
+\subsection*{Tables}
+\label{sec:tableExamples}
+
+Tables should be formatted with the \emph{tabularx} packages, which allows to specify a flexible width column by using the 'X' marker.
+
+\begin{figure}[ht]
+\begin{tabularx}{\textwidth}{lXrr}
+\toprule
+Availability & & Downtime per year & Downtime per week\\
+\midrule
+99.999\%   & \enquote{five Nines}  & 5.26 minutes & 6.05 seconds \\
+99.9999\%  & \enquote{six Nines}  & 31.5 seconds & 0.605 seconds \\
+99.99999\% & \enquote{seven Nines} & 0.3 seconds & 6 milliseconds \\
+\bottomrule
+\end{tabularx}
+\label{tab:availpercent}
+\caption{Example for table rendering.}
+\end{figure}
+
+\subsection*{Equations}
+
+Use the \emph{split} environment to formate your equations properly:
+
+\begin{align}
+  \begin{split}
+    X &= C \lor P \lor S = (C \lor P) \lor S \\
+      &= [0.057212877, 0.187143885] \lor S \\
+      &= [0.25321832, 0.384749206]
+  \end{split}
+\end{align}  
+
+\subsection*{Images}
+
+Images should have a high resolution and should not rely on colors. The preferred format is either PDF or PNG.
+
+%\begin{figure}[t]
+%\centering
+%\includegraphics[width=\textwidth]{foo.png}
+%\caption{Example for figures.}
+%\label{fig:example}
+%\end{figure}
+
+% Use a literature management tool for creating a BibTex file with your references
+\nocite{*}
+\bibliographystyle{IEEEtran}
+\bibliography{references.bib}
+
+\end{document}
